@@ -1,0 +1,459 @@
+// app/globals.scss
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// body {
+//   font-family: 'Inter', sans-serif;
+// }
+
+// ============= SASS VARIABLES (learn SASS!) =============
+$primary-color: rgb(211, 0, 19);
+$primary-dark: rgb(185, 4, 19);
+$secondary-color: rgb(211, 0, 19);
+$white-light: white;
+$orange-dark: #b4532b;
+$gray-light: #f5f7fc;
+$gray-border: #cfcdc8;
+
+// ============= SASS MIXIN (reusable code!) =============
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+gap: .5rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: .875rem;
+  line-height: 1.25rem;
+padding-top: .875rem;
+    padding-bottom: .875rem;
+        padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  border-radius: .5rem;
+
+  transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+  border: none;
+  line-height: 1.2;
+}
+
+// ============= GLOBAL STYLES =============
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// ============= 1. PRIMARY CTA BUTTON =============
+.btn-primary {
+  @include button-base;
+  background: $primary-color;
+  color: white;
+  box-shadow: 0 6px 14px rgba(25, 70, 97, 0.25);
+
+
+
+
+  &:hover {
+    background: $primary-dark;
+    transform: scale(1.08); // increases size
+    box-shadow: 0 8px 18px rgba(25, 70, 97, 0.35);
+  }
+}
+
+// ============= 2. SECONDARY CTA BUTTON =============
+.btn-secondary {
+  @include button-base;
+  background: transparent;
+  border: 1.5px solid $secondary-color;
+  color: $primary-color;
+
+  &:hover {
+    background: $primary-color;
+    transform: translateY(-1px);
+    color: white
+  }
+}
+
+.circleButton {
+  svg {
+    font-size: 24px;
+  }
+}
+.actionBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  background: #fff;
+  width: 100%;
+
+  .buttonText {
+    font-size: 18px;
+    letter-spacing: 6px;
+    color: #444;
+    font-weight: 400;
+  }
+
+  .iconGroup {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .circleButton {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid #e60012;
+    background: transparent;
+    color: #e60012;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #e60012;
+      color: white;
+      transform: scale(1.08);
+      width: 70px; // increase only horizontally
+      border-radius: 30px; // pill shape instead of circle
+
+
+    }
+
+    &.small {
+      width: 40px;
+      height: 40px;
+      border-color: #f3f3f3;
+      background: #fafafa;
+      color: #e60012;
+      font-size: 24px;
+    }
+  }
+}
+
+// ============= 3. BUTTON + ICON LEFT (Download) =============
+.btn-icon-left {
+  @include button-base;
+  background: white;
+  border: 1.5px solid $primary-color;
+  color: $primary-color;
+  font-weight: 500;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+    transform: translateY(-1px);
+  }
+}
+
+// ============= 4. BUTTON + ICON RIGHT (Eligibility) =============
+.btn-icon-right {
+  @include button-base;
+  background: $white-light;
+  color: $primary-dark  ;
+  border: 1px solid $primary-color;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+    transform: translateY(-1px);
+  }
+}
+
+// ============= 5. BUTTON TEXT OFF (disabled) =============
+.btn-text-off {
+  @include button-base;
+  background: #eef2f8;
+  color: #7d8eaa;
+  font-weight: 500;
+  cursor: not-allowed;
+  opacity: 0.7;
+  border: 1px solid #e2e8f0;
+
+  &:hover {
+    transform: none;
+  }
+}
+
+// ============= 6. PROMPT CHIP =============
+.chip-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border-radius: 50px;
+  border: 1px solid $gray-border;
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: black;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  font-family: inherit;
+
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background:$primary-color;
+    color: white;
+    transform: scale(0.98);
+  }
+}
+
+// ============= 7. TAG CHIP =============
+.chip-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgb(250 247 245 / var(--tw-bg-opacity, 1));
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #0f3b5a;
+  border: 1px solid $gray-border;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// ============= 8. ARTICLE BADGE =============
+.article-badge {
+  display: inline-flex;
+  background: rgba(30, 74, 107, 0.1);
+  border-radius: 26px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: $primary-color;
+  border: 1px solid rgba(30, 74, 107, 0.2);
+  text-transform: uppercase;
+}
+
+// ============= 9. LR CONTROLLER =============
+.lr-controller {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  border: 1px solid #cde0ec;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  span {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #345f7c;
+    min-width: 70px;
+    text-align: center;
+  }
+}
+
+.lr-btn {
+  background: #f0f5fa;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #1f5779;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #dde8f1;
+    transform: scale(1.05);
+  }
+}
+
+// ============= UTILITY CLASSES =============
+.section {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #5b6e8c;
+  margin-bottom: 1rem;
+  border-left: 4px solid $primary-color;
+  padding-left: 0.9rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.note {
+  font-size: 0.7rem;
+  color: #6f8eac;
+  margin-top: 0.5rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #163a4f;
+  margin-top: 0.5rem;
+}
+
+.subtitle {
+  color: #3c6e8f;
+  margin-top: 0.25rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #6c8dae;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d8e2ec;
+}
+// ===============================
+// Progress Navigation Design
+// ===============================
+
+.progressWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 20px 40px;
+  background: #f5f5f5;
+}
+
+// =====================================
+// Progress Line
+// =====================================
+
+.progressTrack {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.progressItem {
+  width: 50px;
+  height: 10px;
+  border-radius: 20px;
+  background: #dcdcdc;
+  transition: 0.3s ease;
+
+  &.active {
+    background: #e3000f;
+    width: 100px;
+  }
+}
+
+// =====================================
+// Arrow Buttons
+// =====================================
+
+.arrowGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrowBtn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ece7e4;
+  border-radius: 15px;
+  
+  background: #f8f6f4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 35px;
+    transition: 0.3s ease;
+  }
+
+  &.prev {
+    color: #d7d0cc;
+  }
+
+  &.next {
+   color: #d7d0cc;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    color: #e3000f;
+  }
+}
